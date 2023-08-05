@@ -1,10 +1,11 @@
 import React from "react";
 import { Image, StyleSheet, Dimensions, Alert, View, Text } from "react-native";
 const { width, height } = Dimensions.get("window");
-export const MIN_HEIGHT = 128;
+// export const MIN_HEIGHT = 128;
+export const MIN_HEIGHT = height /8 ;
 export const MAX_HEIGHT = height / 2;
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { Extrapolate, interpolate } from "react-native-reanimated";
+import { Easing, Extrapolate, interpolate, withTiming } from "react-native-reanimated";
 import Animated, {
     useSharedValue,
     useAnimatedStyle,
@@ -12,20 +13,34 @@ import Animated, {
     useAnimatedScrollHandler,
 } from "react-native-reanimated";
 
-const Card = ({ y, index, item: { title, subtitle, picture } }) => {
+const Card2 = ({ y, index, item: { title, subtitle, picture } }) => {
     let container = useAnimatedStyle(() => ({
         height: interpolate(
-            -y.value,
+            y.value,
             [(index - 1) * MAX_HEIGHT, index * MAX_HEIGHT],
             [MIN_HEIGHT, MAX_HEIGHT],
             Extrapolate.CLAMP
         ),
-        top: y.value,
+    }));
+
+    let container2 = useAnimatedStyle(() => ({
+        height: withTiming(
+            interpolate(
+                y.value,
+                [(index - 1) * MAX_HEIGHT, index * MAX_HEIGHT],
+                [MIN_HEIGHT, MAX_HEIGHT],
+                Extrapolate.CLAMP
+            ),
+            {
+                duration: 100,
+                easing: Easing.linear,
+            }
+        ),
     }));
 
     let titleStyle = useAnimatedStyle(() => ({
         opacity: interpolate(
-            -y.value,
+            y.value,
             [(index - 1) * MAX_HEIGHT, index * MAX_HEIGHT],
             [0, 1],
             Extrapolate.CLAMP
@@ -33,7 +48,8 @@ const Card = ({ y, index, item: { title, subtitle, picture } }) => {
     }));
     return (
         // <TouchableWithoutFeedback>
-        <Animated.View style={[styles.container, container]}>
+        // <Animated.View style={[styles.container]}>
+            <Animated.View style={[styles.container, container]}>
             <Image source={picture} style={[styles.picture]} />
             <View style={styles.titleContainer}>
                 <Text style={styles.subtitle}>{subtitle.toUpperCase()}</Text>
@@ -84,4 +100,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Card;
+export default Card2;
