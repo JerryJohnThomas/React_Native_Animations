@@ -17,6 +17,26 @@ export const Movies = [
         title: "Hustle",
         stars: 5,
         picture: require("./assets/hustle_imdb.jpg"),
-        key: 3,
+        key: 33,
+    },
+    {
+        title: "Barbie",
+        stars: 4,
+        picture: require("./assets/barbie_imdb.jpg"),
+        key: 32,
+    },
+
+    {
+        title: "John Wick",
+        stars: 5,
+        picture: require("./assets/jw_imdb.jpg"),
+        key: 31,
+    },
+
+    {
+        title: "OppenHeimer",
+        stars: 5,
+        picture: require("./assets/oppen_imdb.jpg"),
+        key: 30,
     },
 ];

@@ -15,6 +15,7 @@ import Animated, {
     useSharedValue,
 } from "react-native-reanimated";
 import BackDrop from "./BackDrop";
+import BackDrop2 from "./BackDrop2";
 // import { FlatList } from "react-native-gesture-handler";
 const { width, height } = Dimensions.get("window");
 
@@ -32,7 +33,8 @@ const Catalogue = () => {
 
     return (
         <View style={styles.container}>
-            <BackDrop Movies={Movies} scrollx={scrollx} />
+            {/* <BackDrop Movies={Movies} scrollx={scrollx} /> */}
+            <BackDrop2 Movies={Movies} scrollX={scrollx} />
             <Animated.FlatList
                 showsHorizontalScrollIndicator={false}
                 data={Movies}
@@ -79,7 +81,6 @@ let Card = ({ item: { title, stars, picture } }) => {
     );
 };
 
-export default Catalogue;
 
 const styles = StyleSheet.create({
     container: {
@@ -110,3 +111,7 @@ const styles = StyleSheet.create({
         fontWeight: "500",
     },
 });
+
+
+
+export default Catalogue;
