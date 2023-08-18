@@ -26,9 +26,7 @@ const PIE_HEIGHT = height / 3;
 const ITEM_SIZE = width;
 
 let Pie_Card = ({ scrollX, item, index }) => {
-    useEffect(() => {
-        console.log(item);
-    }, []);
+
 
     const img_ctr_as = useAnimatedStyle(() => {
         return {
@@ -69,7 +67,7 @@ let Pie_Card = ({ scrollX, item, index }) => {
             style={[
                 styles.container1,
                 img_ctr_as,
-                { backgroundColor: item.bg_color },
+                // { backgroundColor: item.bg_color },
             ]}
         >
             <Animated.Image
@@ -89,7 +87,7 @@ const Pies = ({ scrollx, data }) => {
                 bottom: 0,
                 width,
                 position: "absolute",
-                backgroundColor: "grey",
+                // backgroundColor: "grey",
             }}
             pointerEvents="none"
         >
@@ -113,27 +111,20 @@ const styles = StyleSheet.create({
         position: "relative",
         width: width,
         height: PIE_HEIGHT,
-        backgroundColor: "blue",
+        // backgroundColor: "blue",
     },
     container1: {
-        // position: "relative",
         width: width,
         height: PIE_HEIGHT,
         position: "absolute",
-        // height: PIE_HEIGHT,
-        // height: height,
-        // overflow: "hidden",
+        transform: [{ translateY: 50 }],
     },
     pie_img_style: {
-        // height: PIE_HEIGHT * 1.55,
-        // flex: 1,
         height: width,
         width: width,
         resizeMode: "contain",
-        // transform: [{ rotateZ: "15deg" }],
-        backgroundColor: "lime",
-        // position: "absolute",
-        // top: height - PIE_HEIGHT,
+        transform: [{ translateY: 50 }, { rotateZ: "90deg" }],
+        // backgroundColor: "lime",
     },
 });
 

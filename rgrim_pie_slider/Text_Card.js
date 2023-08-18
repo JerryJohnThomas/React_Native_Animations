@@ -6,6 +6,11 @@ const Text_Card = ({ item, index , scrollx}) => {
   return (
       <View style={styles.tc_container}>
           <Text style={styles.text_style}> {item.title}</Text>
+
+          <Text style={[styles.about_style, { color: item.about_color }]}>
+              {" "}
+              {item.about}
+          </Text>
       </View>
   );
 }
@@ -19,11 +24,18 @@ const styles = StyleSheet.create({
         // backgroundColor: "green",
     },
     text_style: {
-        transform: [{ translateY: -50 }],
+        transform: [{ translateY: -30 }],
         fontSize: 44,
         color: "white",
-        fontFamily: "playfair-medium",
-        backgroundColor: "green",
+        // fontFamily: "playfair-bold",
+    },
+    about_style: {
+        transform: [{translateY:30}],
+        paddingHorizontal: 20,
+        // fontFamily: "playfair-bold",
+        fontSize: 17,
+        color: "black",
+        textAlign: "center",
     },
 });
 
