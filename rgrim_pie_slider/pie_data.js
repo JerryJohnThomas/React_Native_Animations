@@ -67,20 +67,20 @@ export const pie_data = [
         key: 2,
     },
     {
-        title: "Cherry Pie",
-        about_color: "#77261f",
-        about: "Juicy cherries embraced by a golden crust, a timeless dessert that's pure delight in every slice.",
-        picture: require("../assets/rgrim_pie_slider2/pie3.png"),
-        bg_color: "#ab0016",
-        key: 3,
-    },
-    {
         title: "Bread Pie",
         about_color: "#cc791a",
         about: "A delightful twist on tradition, our Bread Pie features a comforting medley of flavors and textures, with a warm, spiced filling encased in a uniquely satisfying crust.",
         picture: require("../assets/rgrim_pie_slider2/pie4.png"),
         bg_color: "#d09b5e",
         key: 4,
+    },
+    {
+        title: "Cherry Pie",
+        about_color: "#77261f",
+        about: "Juicy cherries embraced by a golden crust, a timeless dessert that's pure delight in every slice.",
+        picture: require("../assets/rgrim_pie_slider2/pie3.png"),
+        bg_color: "#ab0016",
+        key: 3,
     },
     {
         title: "Caramel Pie",

@@ -9,6 +9,7 @@ import Pie_container2 from "./rgrim_pie_slider/Pie_container2";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import Three_Starter101 from "./Three/Starter101/Three_Starter101";
 
 // SplashScreen.preventAutoHideAsync();
 
@@ -24,6 +25,7 @@ export default function App() {
             {/* <Anim1 /> */}
             <StatusBar hidden style="auto" />
             <Pie_container2 />
+            {/* <Three_Starter101 /> */}
             {/* <Pie_container /> */}
             {/* <Chanel2 /> */}
             {/* <Catalogue /> */}
