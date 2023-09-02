@@ -48,9 +48,24 @@ Hard to Easy
 
 1. Dating App: https://dribbble.com/shots/21115057-Dating-app
 1. Boat App: https://dribbble.com/shots/7520340-Mobile-app-Rent-a-boat
+    * need assets
 1. Connected Pages: https://dribbble.com/shots/4539133-Movie-Animation
 1. Connected Pages: https://dribbble.com/shots/2427315-Daily-UI-Day-43-Food-Drink-Menu
+    * the above 2 not the best
 1. Connected Pages: https://dribbble.com/shots/3211630-Restaurant-List-UI-Challenge-Week-11
+    * nice
 1. Connected Pages: https://dribbble.com/shots/4275235-Shopping-Cart
+
 1. Search icon float: https://dribbble.com/shots/6900823-Smooth-search
+
 1. Number Animation: https://dribbble.com/shots/9323126-Bank-cards-3-0
+    * ref: https://www.codedaily.io/courses/Creating-a-React-Native-Animated-Number-Ticker/Animating-Offsets-when-Values-Change-in-React-Native
+    
+
+
+-----------------
+* will do the card animation
+    * https://dribbble.com/shots/4539133-Movie-Animation
+    * https://dribbble.com/shots/3211630-Restaurant-List-UI-Challenge-Week-11
+* then the number animation.
+    * Lamborghini 0 to 100 in, animation.
