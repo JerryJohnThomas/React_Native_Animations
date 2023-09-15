@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         fontFamily: "barlow_bold",
         color: "white",
         fontSize: 75,
-        transform: [{ scaleY: 1.5 }],
+        transform: [{ scaleY: 1.5},{scaleX:1.2 }],
     },
 });
 

@@ -11,7 +11,6 @@ const MainPic = ({bgColor, picture}) => {
                     source={picture}
                   style={styles.picturestyle}
               />
-              {/* <Image source={{uri:picture}} style={styles.picturestyle} /> */}
           </View>
       </View>
   );
