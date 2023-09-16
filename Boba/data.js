@@ -24,7 +24,7 @@ export const iceCreams = [
 
     {
         title: "Gooey Fried Banana",
-        backgroundColor: "#9FBDC0",
+        backgroundColor: "#F9DB00",
         doublePicture: require("../assets/Boba_Icecream/double_pics/Boba_x_Ice_Cream_Banana.png"),
         singlePicture: require("../assets/Boba_Icecream/single_pics/Boba_x_Ice_Cream_r1_1L0A6291_Portrait.png"),
         key: 4,

@@ -15,12 +15,15 @@ const CirclePic = ({
     index,
     active,
     setActive,
+    pressHandler,
     highlighted,
 }) => {
     let displacement = 30;
 
     return (
-        <TouchableWithoutFeedback onPress={() => setActive(() => index)}>
+        <TouchableWithoutFeedback
+            onPress={() => pressHandler(index)}
+        >
             <View>
                 <Image
                     source={picture}
@@ -40,7 +43,7 @@ const CirclePic = ({
                         //         },
                         //     ],
                         // },
-                        active == index ? { borderColor: "white" } : {borderColor:"orange"},
+                        active == index ? { borderColor: "white" } : null,
                     ]}
                 />
             </View>

@@ -11,6 +11,14 @@ import { useState } from "react";
 
 const Home = () => {
     const [active, setActive] = useState(0);
+    const [stack, setStack] = useState([]);
+    const [lastcream, setLastcream] = useState(0);
+
+    let pressHandler = (index) => {
+        setActive(() => index);
+        setStack([lastcream,iceCreams[index]]);
+        setLastcream(iceCreams[index]);
+    };
 
     let [fontsLoaded] = useFonts({
         foundergreek_medium: require("../fonts/Founders_Grotesk/FoundersGrotesk-Medium.otf"),
@@ -26,15 +34,16 @@ const Home = () => {
     });
 
     useEffect(() => {
+        setLastcream(iceCreams[0]);
+        setStack([lastcream]);
     }, []);
-
 
     if (!fontsLoaded) {
         return <AppLoading />;
     }
     return (
         <View style={styles.container}>
-            {/* {iceCreams.map((item, index) => {
+            {stack.map((item, index) => {
                 return (
                     <MainPic
                         bgColor={item.backgroundColor}
@@ -42,12 +51,7 @@ const Home = () => {
                         key={`main_pic${item.key}`}
                     />
                 );
-            })} */}
-            <MainPic
-                bgColor={iceCreams[active].backgroundColor}
-                picture={iceCreams[active].doublePicture}
-                key={`main_pic${iceCreams[active].key}`}
-            />
+            })}
 
             <TextTop />
 
@@ -60,6 +64,7 @@ const Home = () => {
                             index={index}
                             active={active}
                             setActive={setActive}
+                            pressHandler={pressHandler}
                             key={`circles_pic${item.key}`}
                         />
                     );
@@ -71,7 +76,8 @@ const Home = () => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#F9DB00",
+        // flex:1,
+        backgroundColor: "green",
         width,
         paddingTop: 20,
         height,
