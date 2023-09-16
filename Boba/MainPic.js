@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
         marginTop: 0.3 * height,
         width,
         height:0.4*height,
-        backgroundColor:"peachpuff",
     },
     picturestyle: {
         width: width,

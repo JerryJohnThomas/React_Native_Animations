@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Dimensions } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import TextTop from "./TextTop";
@@ -7,8 +7,11 @@ const { width, height } = Dimensions.get("window");
 import MainPic from "./MainPic";
 import { iceCreams } from "./data";
 import CirclePic from "./CirclePic";
+import { useState } from "react";
 
 const Home = () => {
+    const [active, setActive] = useState(0);
+
     let [fontsLoaded] = useFonts({
         foundergreek_medium: require("../fonts/Founders_Grotesk/FoundersGrotesk-Medium.otf"),
         foundergreek_light: require("../fonts/Founders_Grotesk/FoundersGrotesk-Light.otf"),
@@ -22,20 +25,29 @@ const Home = () => {
         philosopher_bold: require("../fonts/Philosopher/Philosopher-Bold.ttf"),
     });
 
+    useEffect(() => {
+    }, []);
+
+
     if (!fontsLoaded) {
         return <AppLoading />;
     }
-
     return (
         <View style={styles.container}>
-            {iceCreams.map((item, index) => {
+            {/* {iceCreams.map((item, index) => {
                 return (
                     <MainPic
                         bgColor={item.backgroundColor}
                         picture={item.doublePicture}
+                        key={`main_pic${item.key}`}
                     />
                 );
-            })}
+            })} */}
+            <MainPic
+                bgColor={iceCreams[active].backgroundColor}
+                picture={iceCreams[active].doublePicture}
+                key={`main_pic${iceCreams[active].key}`}
+            />
 
             <TextTop />
 
@@ -46,6 +58,9 @@ const Home = () => {
                             bgColor={item.backgroundColor}
                             picture={item.singlePicture}
                             index={index}
+                            active={active}
+                            setActive={setActive}
+                            key={`circles_pic${item.key}`}
                         />
                     );
                 })}
@@ -61,13 +76,14 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         height,
     },
-    circleContainer:{
+    circleContainer: {
         width,
-        paddingTop:height*0.23,
+        paddingTop: height * 0.3,
+        paddingHorizontal: 10,
         flexDirection: "row",
-        alignItems:"center",
-        justifyContent:"space-around",
-    }
+        alignItems: "center",
+        justifyContent: "space-around",
+    },
 });
 
 export default Home;
