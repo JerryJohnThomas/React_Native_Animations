@@ -6,7 +6,8 @@ import {
     Image,
     TouchableWithoutFeedback,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useLayoutEffect } from "react";
 const { width, height } = Dimensions.get("window");
 
 const CirclePic = ({
@@ -17,15 +18,31 @@ const CirclePic = ({
     setActive,
     pressHandler,
     highlighted,
+    modifyCirclePos
 }) => {
     let displacement = 30;
 
+    let circleRef = useRef(null);
+
+    let Magic = () => {
+        if (circleRef.current) {
+            circleRef.current.measure((x,y,width, height, pageX, pageY) => {
+                // console.log("Count ", index,  " Width:", width, "   Height:", height, "Page X:", pageX, "Page Y:", pageY); // Width of the element
+                let obj = { x: pageX, y: pageY, h: height, w: width, count:index };
+                modifyCirclePos(index, obj);
+            });
+        }
+    };
+
+    useLayoutEffect(()=>{
+        Magic();
+    },[])
+
     return (
-        <TouchableWithoutFeedback
-            onPress={() => pressHandler(index)}
-        >
+        <TouchableWithoutFeedback onPress={() => pressHandler(index)}>
             <View>
                 <Image
+                    ref={circleRef}
                     source={picture}
                     style={[
                         styles.picturestyle,
@@ -34,17 +51,9 @@ const CirclePic = ({
                                 displacement * 2.5 -
                                 displacement * Math.abs(index - 2.5),
                         },
-                        // {
-                        //     transform: [
-                        //         {
-                        //             translateY:
-                        //                 displacement * 2.5 -
-                        //                 displacement * Math.abs(index - 2.5),
-                        //         },
-                        //     ],
-                        // },
                         active == index ? { borderColor: "white" } : null,
                     ]}
+                    onLoadEnd={() => Magic()}
                 />
             </View>
         </TouchableWithoutFeedback>

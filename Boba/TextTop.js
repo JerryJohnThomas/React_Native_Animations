@@ -70,3 +70,4 @@ const styles = StyleSheet.create({
 });
 
 export default TextTop
+// total 0.3* height used 
